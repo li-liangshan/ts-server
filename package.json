@@ -4,12 +4,34 @@
   "description": "this is node api ",
   "main": "index.js",
   "scripts": {
-    "test": "node test "
+    "build": "tsc --watch",
+    "start": "set debug=* && nodemon --exec DEBUG=node-server:* \\\"ts-node\\\" ./src/app.ts",
+    "prod": "tsc && DEBUG=node-server:* node ./dist/app.js",
+    "test": "node test",
+    "lint": "eslint ./src --ext .ts"
   },
   "keywords": [
     "nodejs",
     "js"
   ],
   "author": "liliangshan",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@types/cors": "^2.8.12",
+    "@types/debug": "^4.1.7",
+    "@types/express": "^4.17.13",
+    "@types/node": "^16.9.4",
+    "@typescript-eslint/eslint-plugin": "^4.31.2",
+    "@typescript-eslint/parser": "^4.31.2",
+    "eslint": "^7.32.0",
+    "nodemon": "^2.0.12",
+    "ts-node": "^10.2.1",
+    "typescript": "^4.4.3"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "debug": "^4.3.2",
+    "express": "^4.17.1"
+  }
 }
